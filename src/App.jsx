@@ -27,12 +27,12 @@ function App() {
         };
 
         const DeleteToDo = () => {
-            if(todo.length == 0) {
+            if(todo.length === 0) {
                 alert("Nothing to delete :)")
                 return false;
             }
             let result = window.confirm("All items will be deleted. Are you sure ?");
-            if ( result == false) {
+            if ( result === false) {
                 return false;
             }
             setTodo([]);
@@ -49,7 +49,7 @@ function App() {
         const handleCheckboxChange = (index) => {
             const newTodos = [...todo];
             newTodos[index].completed = !newTodos[index].completed;
-            if (newTodos[index].completed == true) {
+            if (newTodos[index].completed === true) {
                 setTaskdone(true);
                 setTimeout( ()=> {
                     setTaskdone(false);
@@ -63,7 +63,7 @@ function App() {
                 <div className={`sparkle-not ${taskdone ? 'tada' : ''}`}>
                 <header className='todo-header'>
                     <div className='App-logo'>
-                        <img src={logo} className='todo-logo'></img>
+                        <img src={logo} className='todo-logo' alt='logo of todo list'></img>
                     </div>
                     <p className='todo-title'>Let's do it</p>
                     <p className='todo-subtitle'>Get your tasks done, the right way !</p>
@@ -104,10 +104,10 @@ function App() {
                     </ul> */}
                 </div>
                 <button className='todo-add-button' onClick={AddToDo}>
-                    <img src={plus} className='add-todo'></img>
+                    <img src={plus} className='add-todo' alt='Button to add a task'></img>
                 </button>
                 <button className='todo-delete-button' onClick={DeleteToDo}>
-                    <img src={deleteicon} className='delete-todo'></img>
+                    <img src={deleteicon} className='delete-todo' alt='Button to delete the whole list'></img>
                 </button>
             </div>
             </div>
