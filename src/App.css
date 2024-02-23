@@ -196,7 +196,8 @@
 
 .purple-theme,
 .veges-theme,
-.zebra-theme {
+.zebra-theme,
+.spider-theme {
   display: block;
   height: 50px;
   width: 50px;
@@ -223,6 +224,37 @@
   inherits: false;
 }
 
+@property --myColor4 {
+  syntax: '<color>';
+  initial-value:#D1FAC8;
+  inherits: false;
+}
+
+@property --myColor5 {
+  syntax: '<color>';
+  initial-value: #008000;
+  inherits: false;
+}
+
+@property --myColor6 {
+  syntax: '<color>';
+  initial-value: #000000;
+  inherits: false;
+}
+
+@property --myColor7 {
+  syntax: '<color>';
+  initial-value: #fff;
+  inherits: false;
+}
+
+@property --myColor8 {
+  syntax: '<color>';
+  initial-value: #FBCFFC;
+  inherits: false;
+}
+
+
 .purple-theme {
   background: radial-gradient(var(--myColor1), var(--myColor3), var(--myColor2));
   transition: --myColor1 1s, --myColor2 1s, --myColor3 1s;
@@ -236,11 +268,44 @@
 }
 
 .veges-theme {
-  background: radial-gradient(white, #D1FAC8, green);
+  background: radial-gradient(var(--myColor1), var(--myColor4), var(--myColor5));
+  transition: --myColor1 1s, --myColor2 1s, --myColor3 1s;
+}
+
+.veges-theme:hover,
+.veges-theme:active {
+  --myColor1: #008000;
+  --myColor4: #D1FAC8;
+  --myColor5: #D1FAC8;
 }
 
 .zebra-theme {
-  background-image: radial-gradient(white, white, black);
+  background: radial-gradient(var(--myColor1), var(--myColor7), var(--myColor6));
+  transition: --myColor1 1s, --myColor7 1s, --myColor6 1s;
+}
+
+.zebra-theme:hover,
+.zebra-theme:active {
+  --myColor1: #000;
+  --myColor6: #fff;
+  --myColor7: #fff;
+}
+
+.spider-theme:hover,
+.spider-theme:active {
+  animation: zoomInOut 3s infinite alternate;
+}
+
+@keyframes zoomInOut {
+  0% {
+      transform: rotate(1);
+  }
+  50% {
+      transform: rotate(120deg);
+  }
+  100% {
+      transform: rotate(1);
+  }
 }
 
 .veges-themeing {
@@ -248,19 +313,25 @@
   background-image: url('./veges-theme-desktop.png');
 }
 
+.veges-tooltiptext {
+  text-shadow: none;
+}
+
 .purple-themeing {
   background-image: url('./purple-theme-desktop.png');
 }
 
+.todo-logo-purple {
+  border-radius: 50%;
+}
+
 .purple-title {
   color: white;
-  text-shadow: 0 0 5px white;
-  text-decoration: underline;
+  text-shadow: none;
 }
 
 .purple-subtitle {
   color: white;
-  font-style: italic;
   text-decoration-line: none;
   text-shadow: 0 0 5px white;
 }
@@ -273,8 +344,87 @@
   text-shadow: 1px 1px #CB6CE6;
 }
 
+.purple-tooltiptext {
+  background-color: #CB6CE6;
+  text-shadow: 0 0 1px white;
+}
+
 .purple-todo-input {
   text-decoration: underline solid #CB6CE6 !important;
+}
+
+
+
+.zebra-themeing {
+  background-image: url('./zebra-theme.png');
+}
+
+.todo-logo-zebra {
+  border-radius: 50%;
+}
+
+.zebra-title {
+  text-shadow: none;
+}
+
+.zebra-subtitle {
+  text-shadow: 1px 1px 5px grey;
+}
+
+.zebra-body {
+  border: 3px solid black;
+}
+
+.zebra-todo-text {
+  text-shadow: none;
+}
+
+.zebra-todo-input {
+  text-decoration: none !important;
+}
+
+.zebra-tooltiptext {
+  background-color: grey;
+}
+
+.spider-theme {
+  background-image: url('spider-icon.png');
+}
+
+.spider-themeing {
+  background-image: url('./spider-theme.png');
+}
+
+.spider-title, .spider-subtitle {
+  color: white;
+  text-shadow: 2px 2px 10px #004AAD;
+}
+
+.spider-body {
+  border: 3px solid #004AAD;
+}
+
+.spider-todo-text {
+  color: #004AAD;
+  text-shadow: 1px 1px 4px #004AAD;
+}
+
+.todo-logo-spider {
+  border-radius: 50%;
+}
+
+.spider-tooltiptext {
+  background-color: #004AAD;
+  text-shadow: 0 0 5px white;
+}
+
+.spider-todo-input {
+  text-decoration: underline solid #004AAD !important;
+}
+
+
+.mix-themeing {
+  background: #ffffff; background-image: radial-gradient(at 1.5% 71.1%, #60ddfc 0px, transparent 50%),radial-gradient(at 55.2% 54.3%, #6070fc 0px, transparent 50%),radial-gradient(at 29.0% 79.1%, #fa00e9 0px, transparent 50%),radial-gradient(at 76.0% 15.5%, #d77ff5 0px, transparent 50%),radial-gradient(at 17.4% 38.1%, #7a5ef7 0px, transparent 50%),radial-gradient(at 78.1% 77.9%, #57cffa 0px, transparent 50%)
 }
 
 /* Themeing section -- end */
@@ -285,6 +435,10 @@
 
   .veges-themeing {
     background-image: url('./veges-theme-mobile.png');
+  }
+
+  .zebra-themeing {
+    background-image: url('./zebra-theme.png');
   }
 
   .todo-body {
@@ -303,10 +457,12 @@
 
   .purple-theme,
   .veges-theme,
-  .zebra-theme {
+  .zebra-theme,
+  .spider-theme {
     height: 30px;
     width: 30px;
     margin: 10px;
+    background-position: center;
   }
 
   .purple-themeing {
@@ -317,5 +473,14 @@
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .App {
     background-image: url('./veges-theme-mobile.png');
+  }
+
+  .purple-themeing {
+    background-image: url('./purple-theme-desktop.png');
+    background-size: contain;;
+  }
+  
+  .zebra-themeing {
+    background-image: url('./zebra-theme.png');
   }
 }

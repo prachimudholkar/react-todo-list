@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import logo from './tick.png';
 import logo_purple from './tick-purple.png';
+import logo_zebra from './zebra-tick.gif';
+import logo_spider from './tick-spider.png';
 import plus from './plus.svg';
 import plus_purple from './plus-purple.svg';
+import plus_zebra from './plus-zebra.svg';
+import plus_spider from './plus-spider.svg';
 import deleteicon from './delete.svg';
 import delete_purple from './purple-delete.svg';
+import delete_zebra from './zebra-delete.svg';
+import delete_spider from './spider-delete.svg';
 import './App.css';
 
 function App() {
@@ -66,21 +72,24 @@ function App() {
         };
 
         return (
-            <div className={`App ${selectedTheme === 'purple' ? 'purple-themeing' : selectedTheme === 'veges' ? 'veges-themeing' : selectedTheme === 'zebra' ? 'zebra-themeing' : ''}`}>
+            <div className={`App ${selectedTheme === 'purple' ? 'purple-themeing' : selectedTheme === 'veges' ? 'veges-themeing' : selectedTheme === 'zebra' ? 'zebra-themeing' : selectedTheme === 'spider' ? 'spider-themeing' : ''}`}>
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
                 </meta>
                 {/* Renders different theming for the app */}
                 <div className='todo-themes'>
-                    <div className='todo-purple' onClick={() => setSelectedTheme('purple')}>
-                        <span className='purple-theme'></span>
-                    </div>
                     <div className='todo-veges' onClick={() => setSelectedTheme('veges')}>
                         <span className='veges-theme'></span>
                     </div>
+                    <div className='todo-purple' onClick={() => setSelectedTheme('purple')}>
+                        <span className='purple-theme'></span>
+                    </div>
                     <div className='todo-zebra' onClick={() => setSelectedTheme('zebra')}>
                         <span className='zebra-theme'></span>
+                    </div>
+                    <div className='todo-spider' onClick={() => setSelectedTheme('spider')}>
+                        <span className='spider-theme'></span>
                     </div>
                 </div>
                 {/* Renders sparkling effect on completion of task */}
@@ -93,20 +102,22 @@ function App() {
                             ) : selectedTheme === 'purple' ? (
                                 <img src={logo_purple} className='todo-logo-purple' alt='logo of todo list'></img>
                             ) : selectedTheme === 'zebra' ? (
-                                <img src={logo_purple} className='todo-logo-zebra' alt='logo of todo list'></img>
+                                <img src={logo_zebra} className='todo-logo-zebra' alt='logo of todo list'></img>
+                            ) : selectedTheme === 'spider' ? (
+                                <img src={logo_spider} className='todo-logo-spider' alt='logo of todo list'></img>
                             ) : ''
                             }
                         </div>
-                        <p className={`todo-title ${selectedTheme === 'purple' ? 'purple-title' : selectedTheme === 'veges' ? 'veges-title' : selectedTheme === 'zebra' ? 'zebra-title' : ''}`}>Let's do it</p>
-                        <p className={`todo-subtitle ${selectedTheme === 'purple' ? 'purple-subtitle' : selectedTheme === 'veges' ? 'veges-subtitle' : selectedTheme === 'zebra' ? 'zebra-subtitle' : ''}`}>Get your tasks done, the right way !</p>
+                        <p className={`todo-title ${selectedTheme === 'purple' ? 'purple-title' : selectedTheme === 'veges' ? 'veges-title' : selectedTheme === 'zebra' ? 'zebra-title' : selectedTheme === 'spider' ? 'spider-title' : ''}`}>Let's do it</p>
+                        <p className={`todo-subtitle ${selectedTheme === 'purple' ? 'purple-subtitle' : selectedTheme === 'veges' ? 'veges-subtitle' : selectedTheme === 'zebra' ? 'zebra-subtitle' : selectedTheme === 'spider' ? 'spider-subtitle' : ''}`}>Get your tasks done, the right way !</p>
                     </header>
 
                     {/* Renders the todo list */}
-                    <div className={`todo-body ${selectedTheme === 'purple' ? 'purple-body' : selectedTheme === 'veges' ? 'veges-body' : selectedTheme === 'zebra' ? 'zebra-body' : ''}`}>
+                    <div className={`todo-body ${selectedTheme === 'purple' ? 'purple-body' : selectedTheme === 'veges' ? 'veges-body' : selectedTheme === 'zebra' ? 'zebra-body' : selectedTheme === 'spider' ? 'spider-body' : ''}`}>
                         {showInitialText &&
-                            <p className={`initial-todo-text ${selectedTheme === 'purple' ? 'purple-todo-text' : selectedTheme === 'veges' ? 'veges-todo-text' : selectedTheme === 'zebra' ? 'zebra-todo-text' : ''}`}>
+                            <p className={`initial-todo-text ${selectedTheme === 'purple' ? 'purple-todo-text' : selectedTheme === 'veges' ? 'veges-todo-text' : selectedTheme === 'zebra' ? 'zebra-todo-text' : selectedTheme === 'spider' ? 'spider-todo-text' : ''}`}>
                                 Enlist your tasks here!
-                                <span class="tooltiptext">Please click the plus button</span>
+                                <span className={`tooltiptext ${selectedTheme === 'purple' ? 'purple-tooltiptext' : selectedTheme === 'veges' ? 'veges-tooltiptext' : selectedTheme === 'zebra' ? 'zebra-tooltiptext' : selectedTheme === 'spider' ? 'spider-tooltiptext' : ''}`}>Please click the plus button</span>
                             </p>
                         }
                         <ul className='todo-list'>
@@ -122,7 +133,7 @@ function App() {
                                         autoFocus
                                         type='text'
                                         placeholder='Enter your task'
-                                        className={`todo-input  ${selectedTheme === 'purple' ? 'purple-todo-input' : selectedTheme === 'veges' ? 'veges-todo-input' : selectedTheme === 'zebra' ? 'zebra-todo-input' : ''} ${(!todo.text.length && addInputClass) ? 'input-error' : ''}`}
+                                        className={`todo-input  ${selectedTheme === 'purple' ? 'purple-todo-input' : selectedTheme === 'veges' ? 'veges-todo-input' : selectedTheme === 'zebra' ? 'zebra-todo-input' : selectedTheme === 'spider' ? 'spider-todo-input' : ''} ${(!todo.text.length && addInputClass) ? 'input-error' : ''}`}
                                         value={todo.text}
                                         onChange={(event) => handleInputChange(index, event)}
                                         required={true}
@@ -146,7 +157,9 @@ function App() {
                             ) : selectedTheme === 'purple' ? (
                                 <img src={plus_purple} className='add-todo' alt='Button to add a task'></img>
                             ) : selectedTheme === 'zebra' ? (
-                                <img src={plus} className='add-todo' alt='Button to add a task'></img>
+                                <img src={plus_zebra} className='add-todo' alt='Button to add a task'></img>
+                            ) : selectedTheme === 'spider' ? (
+                                <img src={plus_spider} className='add-todo' alt='Button to add a task'></img>
                             ) : ''
                             }
                         </button>
@@ -159,7 +172,10 @@ function App() {
                                 <img src={delete_purple} className='delete-todo' alt='Button to delete the whole list'></img>
 
                             ) : selectedTheme === 'zebra' ? (
-                                <img src={deleteicon} className='delete-todo' alt='Button to delete the whole list'></img>
+                                <img src={delete_zebra} className='delete-todo' alt='Button to delete the whole list'></img>
+
+                            ) : selectedTheme === 'spider' ? (
+                                <img src={delete_spider} className='delete-todo' alt='Button to delete the whole list'></img>
 
                             ) : ''
                             }
