@@ -1,11 +1,13 @@
 .App {
   text-align: center;
-  background-color: #d1fac8;
-  height: 100vh;
+  background-position: center center;
+  min-height: 100vh;
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 
 .todo-header {
-  padding-top: 30px;
+  padding: 30px 0;
 }
 
 .todo-logo {
@@ -20,34 +22,62 @@
 }
 
 @keyframes App-logo-float {
-  0% { transform: translate(0,  0px); }
-  50%  { transform: translate(0, 15px); }
-  100%   { transform: translate(0, -0px); } 
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, 15px);
+  }
+
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
 .todo-title {
   font-weight: 600;
-  font-family:  'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 30px;
   text-shadow: 3px 3px lightgreen;
   margin: 5px 0px;
 }
 
-.todo-subtitle, .initial-todo-text {
-  font-family:  Georgia, 'Times New Roman', Times, serif;
+.todo-subtitle,
+.initial-todo-text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   font-weight: 500;
   text-decoration-line: underline;
   text-decoration-style: solid;
+  text-shadow: 1px 1px lightgreen;
   margin: 10px 0px;
 }
 
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 10px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 28px;
+  margin-left: -30px;
+}
+
+.initial-todo-text:hover .tooltiptext {
+  visibility: visible;
+}
+
 .todo-body {
-  height: auto;
   width: 50%;
   background-color: white;
   padding: 20px;
-  margin: 30px auto;
+  margin: auto;
   border: 3px solid green;
   border-radius: 12px;
 }
@@ -60,6 +90,7 @@
 
 .todo-task {
   list-style: none;
+  margin: 5px 0;
 }
 
 .todo-task .todo-checkbox {
@@ -73,6 +104,7 @@
   display: block;
   height: 100vh;
 }
+
 .sparkle-not {
   background-image: none;
 }
@@ -80,7 +112,7 @@
 .input-error {
   border: 1px solid red;
   box-shadow: 2px 2px palevioletred;
-  border-style:double !important;
+  border-style: double !important;
 }
 
 .input-error::after {
@@ -100,7 +132,7 @@
   text-align: left;
   text-decoration: underline solid green;
   width: 180px;
-  font-family:  Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   padding: 0px 10px;
   margin-left: 10px;
@@ -117,7 +149,8 @@
   text-decoration: line-through grey;
 }
 
-.todo-add-button, .todo-delete-button {
+.todo-add-button,
+.todo-delete-button {
   background: transparent;
   border: none;
 }
@@ -126,24 +159,163 @@
   height: 54px;
 }
 
-.add-todo:hover, .delete-todo:hover {
+.add-todo:hover,
+.delete-todo:hover {
   animation: plus-add-todo 1.5s ease-in infinite;
+}
+
+.todo-action-buttons {
+  margin: 20px 20px 0 20px;
+  padding-bottom: 40px;
 }
 
 @keyframes plus-add-todo {
   0% {
     transform: scale(1, 1);
   }
+
   50% {
     transform: scale(1.3, 1.3);
   }
+
   100% {
     transform: scale(1, 1);
   }
 }
 
-@media only screen and (max-width: 600px)  {
+/* Themeing section -- start */
+.todo-themes {
+  display: block;
+  position: absolute;
+  margin: auto auto;
+  height: 80px;
+  right: 10px;
+  border-radius: 50%;
+  padding-top: 30px
+}
+
+.purple-theme,
+.veges-theme,
+.zebra-theme {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+@property --myColor1 {
+  syntax: '<color>';
+  initial-value: white;
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: purple;
+  inherits: false;
+}
+
+@property --myColor3 {
+  syntax: '<color>';
+  initial-value: #FBCFFC;
+  inherits: false;
+}
+
+.purple-theme {
+  background: radial-gradient(var(--myColor1), var(--myColor3), var(--myColor2));
+  transition: --myColor1 1s, --myColor2 1s, --myColor3 1s;
+}
+
+.purple-theme:hover,
+.purple-theme:active {
+  --myColor1: #6A197D;
+  --myColor2: white;
+  --myColor3: #FBCFFC;
+}
+
+.veges-theme {
+  background: radial-gradient(white, #D1FAC8, green);
+}
+
+.zebra-theme {
+  background-image: radial-gradient(white, white, black);
+}
+
+.veges-themeing {
+  background-color: #D1FAC8;
+  background-image: url('./veges-theme-desktop.png');
+}
+
+.purple-themeing {
+  background-image: url('./purple-theme-desktop.png');
+}
+
+.purple-title {
+  color: white;
+  text-shadow: 0 0 5px white;
+  text-decoration: underline;
+}
+
+.purple-subtitle {
+  color: white;
+  font-style: italic;
+  text-decoration-line: none;
+  text-shadow: 0 0 5px white;
+}
+
+.purple-body {
+  border: 1px solid #CB6CE6;
+}
+
+.purple-todo-text {
+  text-shadow: 1px 1px #CB6CE6;
+}
+
+.purple-todo-input {
+  text-decoration: underline solid #CB6CE6 !important;
+}
+
+/* Themeing section -- end */
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .veges-themeing {
+    background-image: url('./veges-theme-mobile.png');
+  }
+
   .todo-body {
     width: 70%;
+  }
+
+  .todo-themes {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 200px;
+    padding-top: 10px;
+  }
+
+  .purple-theme,
+  .veges-theme,
+  .zebra-theme {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+  }
+
+  .purple-themeing {
+    background-size: contain;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .App {
+    background-image: url('./veges-theme-mobile.png');
   }
 }
