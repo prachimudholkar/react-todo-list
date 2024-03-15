@@ -7,7 +7,7 @@
 }
 
 .todo-header {
-  padding: 30px 0;
+  padding: 30px 0 5px 0;
 }
 
 .todo-logo {
@@ -202,23 +202,45 @@
 }
 
 .todo-action-buttons {
-  margin: 20px 20px 0 20px;
-  padding-bottom: 40px;
+  margin: 10px 20px 5px 20px;
 }
 
 .todo-hidden {
+  font-family: 'Times New Roman', Times, serif !important;
   display: none;
   border: none;
-  border-bottom: 1px solid grey;
   text-align: center;
   background-color: transparent;
   font-family: inherit;
   font-weight: bold;
   font-size: 14px;
-  color: black;
-  text-shadow: 2px 2px 5px white;
   margin: 0 auto 10px auto;
 }
+
+.todo-hidden.veges-hiddenButton {
+  color: black;
+  text-shadow: 2px 2px 5px #90ee90;
+  border-bottom: 1px solid #90ee90;
+}
+
+.todo-hidden.purple-hiddenButton {
+  color: white;
+  text-shadow: 2px 2px 5px #CB6CE6;
+  border-bottom: 1px solid #CB6CE6;
+}
+
+.todo-hidden.spider-hiddenButton {
+  color: white;
+  text-shadow: 2px 2px 5px #004AAD;
+  border-bottom: 1px solid #004AAD;
+}
+
+.todo-hidden.zebra-hiddenButton {
+  color: black;
+  text-shadow: 2px 2px 5px #808080;
+  border-bottom: 1px solid #808080;
+}
+
 
 .todo-hidden-show {
   display: block;
