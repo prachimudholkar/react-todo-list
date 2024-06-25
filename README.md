@@ -19,9 +19,8 @@ This is a simple To-Do application built using React, a popular JavaScript libra
 * JavaScript
 
 
-> [!TIP]
-> Icons Used - Add, Delete and Tick
-> https://icons8.com/icon/Z2KRaTPsIv6p/plus
-> https://icons8.com/icon/PN84GwwZXtfH/delete
-> https://icons8.com/icon/EmPTDMRlslbb/checkmark
-> https://icons8.com/icon/60010/thumbs-up
+Icons Used - Add, Delete and Tick
+https://icons8.com/icon/Z2KRaTPsIv6p/plus
+https://icons8.com/icon/PN84GwwZXtfH/delete
+https://icons8.com/icon/EmPTDMRlslbb/checkmark
+https://icons8.com/icon/60010/thumbs-up
